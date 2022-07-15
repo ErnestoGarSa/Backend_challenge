@@ -16,4 +16,19 @@ const createPost = async (postData) =>{
     return post
 }
 
-module.exports= {getAll,getById, createPost}
+const deletePost = async (id) => {
+    const post = await Post.findByIdAndDelete(id)
+    if (!post){
+        const error = new Error ("Post not found")
+        error["status"] = 404
+        throw error
+    } 
+
+    return post
+}
+
+const updatePost = async (id,data) =>{
+    const post = await Post.findByIdAndUpdate(id, data, {returnDocument: "after"})
+    return post
+}
+module.exports= {getAll,getById, createPost, deletePost, updatePost}
