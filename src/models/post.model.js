@@ -1,10 +1,6 @@
 const mongoose = require("mongoose")
 
 const postSchema = new mongoose.Schema({
-<<<<<<< HEAD
-    title, user
-})
-=======
     photo:{
         type: String
     },
@@ -42,4 +38,3 @@ const postSchema = new mongoose.Schema({
 })
 
 module.exports=mongoose.model("posts", postSchema)
->>>>>>> Post
