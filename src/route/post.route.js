@@ -1,5 +1,5 @@
 const express = require("express")
-const {getAll, getById} = require ("../usecases/post.usecase")
+const {getAll, getById, createPost} = require ("../usecases/post.usecase")
 const router = express.Router()
 
 router.get ("/", async (request, response)=>{
@@ -35,6 +35,25 @@ router.get ("/:id", async (request, response)=>{
         response.status(error.status || 404)
         response.json({
             success:false,
+            message: error.message
+        })
+    }
+})
+
+router.post("/", async (request, response)=>{
+    try{
+        const post = await createPost(request.body)
+        response.status(201)
+        response.json({
+            success: true, 
+            data: {
+                post
+            }
+        })
+    }catch(error){
+        response.status(error.status || 400)
+        response.json({
+            success : false,
             message: error.message
         })
     }

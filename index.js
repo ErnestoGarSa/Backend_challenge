@@ -14,5 +14,5 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`
     })
 })
 .catch((error)=> {
-    console.log("There was an error")
+    console.log("There was an error", error)
 })

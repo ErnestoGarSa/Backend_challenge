@@ -16,8 +16,6 @@ const postSchema = new mongoose.Schema({
     title:{
         type: String,
         required:true,
-        minlength:8,
-        maxlength:25
     },
     hashTag:{
         type: String,

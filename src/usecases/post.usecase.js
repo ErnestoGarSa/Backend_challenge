@@ -11,5 +11,9 @@ const getById = (id) =>{
     return post
 }
 
+const createPost = async (postData) =>{
+    const post = await Post.create(postData)
+    return post
+}
 
-module.exports= {getAll,getById}
+module.exports= {getAll,getById, createPost}
