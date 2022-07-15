@@ -10,19 +10,19 @@ const postSchema = new mongoose.Schema({
         minlength:3,
         maxlength:15
     },
-    profilePic:{
+    pph:{
         type: String
     },
     title:{
         type: String,
         required:true,
     },
-    hashTag:{
+    tag:{
         type: String,
         minlength:2,
         maxlength:10
     },
-    post:{
+    content:{
         type: String,
         required:true,
         minlength:3,
