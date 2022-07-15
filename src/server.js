@@ -5,7 +5,7 @@ app.use(express.json())
 
 app.get("/", (request, response) => {
     response.json({
-        message:"Endpoint de Home"
+        message:"Home Endpoint"
     })
 })
 
