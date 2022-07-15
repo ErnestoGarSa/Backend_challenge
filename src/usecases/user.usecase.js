@@ -13,10 +13,12 @@ const login = async (email, password) =>{
     if(!isValid) throw createError(400, "Invalid data")
 
     const token = jwt.sign({id: user._id})
+    console.log("token", token)
     return token
 }
 
 const newUser = async (data) =>{
+    console.log(data)
     const hash = await bcrypt.hash(data.password, 10)
 
     data.password = hash

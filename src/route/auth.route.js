@@ -2,6 +2,7 @@ const express = require("express")
 const {login} = require("../usecases/user.usecase")
 const router = express.Router()
 
+
 router.post("/", async(request, response)=>{
     const {email, password} = request.body
 
