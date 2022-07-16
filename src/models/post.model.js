@@ -8,7 +8,7 @@ const postSchema = new mongoose.Schema({
         type: String,
         required:true,
         minlength:3,
-        maxlength:15
+
     },
     pph:{
         type: String

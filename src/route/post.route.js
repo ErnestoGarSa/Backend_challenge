@@ -1,6 +1,7 @@
 const express = require("express")
 const {getAll, getById, createPost, deletePost, updatePost} = require ("../usecases/post.usecase")
 const router = express.Router()
+const auth = require("../middlewares/auth.middleware")
 
 router.get ("/", async (request, response)=>{
 
@@ -59,7 +60,7 @@ router.post("/", async (request, response)=>{
     }
 })
 
-router.delete ("/:id", async (request, response)=>{
+router.delete ("/:id", auth , async (request, response)=>{
     const {id} = request.params
     try{
         const post = await deletePost(id)
@@ -79,7 +80,7 @@ router.delete ("/:id", async (request, response)=>{
     }
 })
 
-router.patch ("/:id", async (request, response)=>{
+router.patch ("/:id",auth, async (request, response)=>{
     const {id} = request.params
     try{
         const post = await updatePost(id, request.body)
