@@ -60,7 +60,7 @@ router.post("/", async (request, response)=>{
     }
 })
 
-router.delete ("/:id", auth , async (request, response)=>{
+router.delete ("/:id", async (request, response)=>{
     const {id} = request.params
     try{
         const post = await deletePost(id)
@@ -80,7 +80,7 @@ router.delete ("/:id", auth , async (request, response)=>{
     }
 })
 
-router.patch ("/:id",auth, async (request, response)=>{
+router.patch ("/:id", async (request, response)=>{
     const {id} = request.params
     try{
         const post = await updatePost(id, request.body)
